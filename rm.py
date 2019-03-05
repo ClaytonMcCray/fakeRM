@@ -75,7 +75,7 @@ def undo_delete():
     to_restore.append(pairs[-2])
     to_restore.append(pairs[-1])
     if os.path.exists(to_restore[1]):
-        print("There will be a name error; change resolve the conflict in the destination.")
+        print("There will be a name error; resolve the conflict in the destination.")
         return
     else:
         shutil.move(to_restore[0], to_restore[1])
