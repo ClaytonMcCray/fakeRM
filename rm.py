@@ -99,6 +99,15 @@ parser.add_argument("--permanent", help="Permanently delete file or directory.",
 
 args = parser.parse_args()
 
+
+# verify that the trash exists
+if not os.path.exists(TRASH):
+    os.mkdir(TRASH)
+if not os.path.exists(TRASH + "TRASH_LOG.log"):
+    f = open(TRASH + "TRASH_LOG.log", "w")
+    f.close()
+
+# parse the arguments
 if args.recursive:
     for arg in args.recursive[0]:  # not sure why, but args.recursive is 2d
         recur(arg, args.permanent)
